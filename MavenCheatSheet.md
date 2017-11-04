@@ -2,20 +2,20 @@
 
 Maven ist ein Build-Werkzeug. Die Konfiguration für ein Projekt ist in einer
 `pom.xml`-Datei abgelegt. <http://start.spring.io/> bietet eine einfach
-Möglichkeit, um neue Spring-Boot-Projekte mit passenden `pom.xml`-Dateien zu
-erzeugen.  Dazu muss der Nutzer auf der Website nur einige Einstellungen
+Möglichkeit, um neue Spring-Boot-Projekte mit passender `pom.xml`-Datei zu
+erzeugen. Dazu muss der Nutzer auf der Website nur einige Einstellungen
 übergeben. Die Website erstellt dann das passende Projekt mit einer `pom.xml`.
 
 Maven kann mehrere Projekte zu einem
 [Mulit-Modul-Projekt](https://maven.apache.org/guides/mini/guide-multiple-modules.html)
 zusammenfassen. Dann sind die Definitionen, die für alle Module gelten sollen,
-in einem `pom.xml`hinterlegt. Dieses `pom.xml` referenzieren alle Module.
+in einer `pom.xml`hinterlegt. Diese `pom.xml` referenziert alle Module.
 
-Das `pom.xml` ist in einem Verzeichnis abgespeichert. Die Module sind in
-Unterverzeichnisse abgespeichert.  Sie haben eigene `pom.xml` mit den
+Die `pom.xml` ist in einem Verzeichnis abgespeichert. Die Module sind in
+Unterverzeichnisse abgespeichert.  Sie haben eine eigene `pom.xml` mit den
 spezifischen Informationen für das jeweilige Modul.
 
-Entweder kann man Maven in dem Verzeichnis mit dem `pom.xml` für das
+Entweder kann man Maven in dem Verzeichnis mit der `pom.xml` für das
 Gesamtprojekt starten. Dann baut Maven das gesamte Projekt mit allen Modulen.
 Startet man Maven in dem Verzeichnis für ein spezifisches Modul, dann beziehen
 sich die Maven-Kommandos auf ein Modul.
