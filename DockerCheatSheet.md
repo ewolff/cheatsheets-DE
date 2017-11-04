@@ -11,8 +11,6 @@ Docker Compose nutzt die Datei `docker-compose.yml`, um
 Informationen zu den Container auszulesen. Die
 [Docker Dokumentation](https://docs.docker.com/compose/compose-file/)
 erläutert den Aufbau dieser Datei.
-Abschnitt~\ref{section-docker-docker-compose} enthält ein Beispiel für
-eine Docker-Compose-Datei.
 
 Beim Starten gibt `docker-compose` alle möglichen Kommandos aus. Die
 wichtigsten Kommandos für Docker Compose:
@@ -26,9 +24,9 @@ wichtigsten Kommandos für Docker Compose:
 * `docker-compose up -d` startet die Docker Container im Hintergrund.
 Ohne `-d` starten die Container im Vordergrund, sodass die Ausgabe aller Docker
 Container auf der Konsole ausgegeben werden. Dsa ist nicht besonders
-übersichtlich. Die Option `---scale`
+übersichtlich. Die Option `--scale`
 kann mehrere Instanzen eines Service starten z.B.
-`docker-compose up -d ---scale order=2` startet zwei Instanzen des
+`docker-compose up -d --scale order=2` startet zwei Instanzen des
 Order-Service. Vorgabewert ist eine Instanz.
 
 * `docker-compose down` stoppt die Container und löscht sie. Außerdem
@@ -68,9 +66,9 @@ Containers mit dem Namen des Images (z.B. `ms_catalog`) verwechselt.
 
 #### Lebenszyklus eines Containers
 
-* `docker run ms_catalog ---name="container_name"` startet ein neuen
+* `docker run ms_catalog --name="container_name"` startet ein neuen
 Container mit dem Image `ms_catalog`, der den
-Namen `container_name` erhält. Der Parameter `---name` ist
+Namen `container_name` erhält. Der Parameter `--name` ist
 optional. Der Container
 führt dann das Kommando aus, dass im `CMD`-Eintrag des `Dockerfiles`
 hinterlegt ist. Man kann aber mit `docker run <image> <Kommando>`
