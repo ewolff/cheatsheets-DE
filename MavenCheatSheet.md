@@ -50,8 +50,8 @@ Verzeichnis-Struktur:
 Die wichtigsten Kommandos für Maven sind:
 
 * `mvn package` lädt alle Abhängigkeiten aus dem Internet herunter,
-kompiliert den Code, führt die Tests aus und erzeugt eine ausführbare
-JAR-Dateien. Das Ergebnis steht im Unterverzeichnis `target` des
+kompiliert den Code, führt die Tests aus und verpackt den kompilierten Code 
+in JAR-Dateien. Das Ergebnis steht im Unterverzeichnis `target` des
 jeweiligen Moduls bereit. `mvn package -Dmaven.test.skip=true` führt
 die Tests nicht aus. `mvn package -DdownloadSources=true
 -DdownloadJavadocs=true` lädt den Source Code und das JavaDoc der
