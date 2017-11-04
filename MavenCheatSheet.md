@@ -42,7 +42,7 @@ Die wichtigsten Kommandos für Maven sind:
 * `mvn package` lädt alle Abhängigkeiten aus dem Internet herunter, kompiliert
   den Code, führt die Tests aus und erzeugt eine ausführbare JAR-Dateien. Das
   Ergebnis steht im Unterverzeichnis `target` des jeweiligen Moduls bereit.
-  `mvn package -Dmaven.test.skip=true` führt die Tests nicht aus. `mvn package
+  `mvn package -DskipTests` führt die Tests nicht aus. `mvn package
   -DdownloadSources=true -DdownloadJavadocs=true` lädt den Source Code und das
   JavaDoc der abhängigen Bibliotheken aus dem Internet. Das JavaDoc enthält eine
   Beschreibung der API. Entwicklungsumgebungen können JavaDoc und Source Code
@@ -72,5 +72,5 @@ Wenn `mvn package` nicht funktioniert:
 * `mvn clean package` ausprobieren, um alte Build-Ergebnisse vor dem Build zu
   löschen.
 
-* `mvn clean package package -Dmaven.test.skip=true` nutzen, um die Tests nicht
+* `mvn clean package package -DskipTests` nutzen, um die Tests nicht
   auszuführen.
