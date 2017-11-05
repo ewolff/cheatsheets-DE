@@ -4,18 +4,20 @@ Maven ist ein Build-Werkzeug. Die Konfiguration für ein Projekt ist in einer
 `pom.xml`-Datei abgelegt.
 
 Maven kann mehrere Projekte zu einem
-[Mulit-Modul-Projekt](https://maven.apache.org/guides/mini/guide-multiple-modules.html)
-zusammenfassen. Dann sind die Definitionen, die für alle Module gelten sollen,
-in einer `pom.xml`hinterlegt. Diese `pom.xml` referenziert alle Module.
-
-Die `pom.xml` ist in einem Verzeichnis abgespeichert. Die Module sind in
-Unterverzeichnissen abgespeichert.  Sie haben jeweils eine eigene `pom.xml` mit
-den spezifischen Informationen für das jeweilige Modul.
+[Multi-Modul-Projekt](https://maven.apache.org/guides/mini/guide-multiple-modules.html)
+zusammenfassen. Dazu werden Unterhalb eines Projektes Sub-Module angelegt und in
+der `pom.xml` referenziert. Jedes Sub-Modul existiert in einem eigenen
+Unterverzeichnis und hat eine eigene `pom.xml` die nur für dieses Modul gilt.
 
 Entweder kann man Maven in dem Verzeichnis mit der `pom.xml` für das
 Gesamtprojekt starten. Dann baut Maven das gesamte Projekt mit allen Modulen.
 Startet man Maven im Verzeichnis eines spezifischen Moduls, dann beziehen sich
 die Maven-Kommandos nur auf dieses Modul.
+
+Sollen Maven Module Definitionen, wie z.B. die Java-Version, von anderen Modulen
+übernehmen wird Vererbung eingesetzt. Jede `pom.xml` kann dabei nur von genau
+einem anderen Modul erben. Bei einem Multi-Modul-Projekt erben häufig alle
+Sub-Module von der `pom.xml` welche die Sub-Module referenziert.
 
 #### Verzeichnisse
 
@@ -50,8 +52,7 @@ Die wichtigsten Kommandos für Maven sind:
 * `mvn install` fügt `mvn package` noch einen Schritt hinzu, indem es die
   JAR-Dateien in das lokale Repository (`.m2`-Verzeichnis im Heimatverzeichnis
   des Benutzers) kopiert. So können andere Projekte und Module das Modul als
-  Abhängigkeit in der `pom.xml` deklarieren. Für die Beispiele ist das aber
-  nicht notwendig, sodass `mvn package` ausreichend ist.
+  Abhängigkeit in der `pom.xml` deklarieren.
 
 * `mvn clean` löscht alle Ergebnisse der vorherigen Builds.
 
@@ -66,21 +67,20 @@ Wenn `mvn package` nicht funktioniert:
 * `mvn clean package` ausprobieren, um alte Build-Ergebnisse vor dem Build zu
   löschen.
 
-* `mvn clean package -DskipTests` nutzen, um die Tests nicht
-auszuführen.
+* `mvn clean package -DskipTests` nutzen, um die Tests nicht auszuführen.
 
-* `mvn clean package -Dmaven.test.skip=true` führt die Tests nicht aus
-  und kompiliert die Tests auch nicht.
+* `mvn clean package -Dmaven.test.skip=true` führt die Tests nicht aus und
+  kompiliert die Tests auch nicht.
 
 #### Spring Boot
 
-<http://start.spring.io/> bietet eine einfache
-Möglichkeit, um neue Spring-Boot-Projekte mit passender `pom.xml`-Datei zu
-erzeugen. Dazu muss der Nutzer auf der Website nur einige Einstellungen
-übergeben. Die Website erstellt dann das passende Projekt mit einer `pom.xml`.
+<http://start.spring.io/> bietet eine einfache Möglichkeit, um neue
+Spring-Boot-Projekte mit passender `pom.xml`-Datei zu erzeugen. Dazu muss der
+Nutzer auf der Website nur einige Einstellungen übergeben. Die Website erstellt
+dann das passende Projekt mit einer `pom.xml`.
 
-Das Ergebnis des Maven-Builds bei einem Spring-Boot-Projekt ist ein
-JAR (Java Archive). In diesem sind alle Bestandteile der Anwendung
-einschließlich aller Bibliotheken enthalten. Java unterstützt dieses
-Dateiformat direkt. Also kann ein Microservice mit `java -jar
-target/microservice-order-0.0.1-SNAPSHOT.jar` gestartet werden.
+Das Ergebnis des Maven-Builds bei einem Spring-Boot-Projekt ist ein JAR (Java
+Archive). In diesem sind alle Bestandteile der Anwendung einschließlich aller
+Bibliotheken enthalten. Java unterstützt dieses Dateiformat direkt. Also kann
+ein Microservice mit `java -jar target/microservice-order-0.0.1-SNAPSHOT.jar`
+gestartet werden.
