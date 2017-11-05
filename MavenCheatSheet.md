@@ -62,9 +62,10 @@ Die wichtigsten Kommandos für Maven sind:
   alles komplett neu, weil die Ergebnisse der alten Builds vor dem Build
   gelöscht werden.
 
-Das Ergebnis des Maven-Builds ist ein JAR (Java Archive). In diesem sind alle
-Bestandteile der Anwendung einschließlich aller Bibliotheken enthalten. Java
-unterstützt dieses Dateiformat direkt. Also kann ein Microservice mit `java -jar
+Das Ergebnis des Maven-Builds bei einem Spring-Boot-Projekt ist ein
+JAR (Java Archive). In diesem sind alle Bestandteile der Anwendung
+einschließlich aller Bibliotheken enthalten. Java unterstützt dieses
+Dateiformat direkt. Also kann ein Microservice mit `java -jar
 target/microservice-order-0.0.1-SNAPSHOT.jar` gestartet werden.
 
 #### Troubleshooting
@@ -74,5 +75,8 @@ Wenn `mvn package` nicht funktioniert:
 * `mvn clean package` ausprobieren, um alte Build-Ergebnisse vor dem Build zu
   löschen.
 
-* `mvn clean package package -DskipTests` nutzen, um die Tests nicht
-  auszuführen.
+* `mvn clean package -DskipTests` nutzen, um die Tests nicht
+auszuführen.
+
+* `mvn clean package -Dmaven.test.skip=true` führt die Tests nicht aus
+  und kompiliert die Tests auch nicht.
