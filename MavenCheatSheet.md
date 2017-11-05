@@ -1,10 +1,7 @@
 # Maven Cheat Sheet
 
 Maven ist ein Build-Werkzeug. Die Konfiguration für ein Projekt ist in einer
-`pom.xml`-Datei abgelegt. <http://start.spring.io/> bietet eine einfache
-Möglichkeit, um neue Spring-Boot-Projekte mit passender `pom.xml`-Datei zu
-erzeugen. Dazu muss der Nutzer auf der Website nur einige Einstellungen
-übergeben. Die Website erstellt dann das passende Projekt mit einer `pom.xml`.
+`pom.xml`-Datei abgelegt.
 
 Maven kann mehrere Projekte zu einem
 [Mulit-Modul-Projekt](https://maven.apache.org/guides/mini/guide-multiple-modules.html)
@@ -62,12 +59,6 @@ Die wichtigsten Kommandos für Maven sind:
   alles komplett neu, weil die Ergebnisse der alten Builds vor dem Build
   gelöscht werden.
 
-Das Ergebnis des Maven-Builds bei einem Spring-Boot-Projekt ist ein
-JAR (Java Archive). In diesem sind alle Bestandteile der Anwendung
-einschließlich aller Bibliotheken enthalten. Java unterstützt dieses
-Dateiformat direkt. Also kann ein Microservice mit `java -jar
-target/microservice-order-0.0.1-SNAPSHOT.jar` gestartet werden.
-
 #### Troubleshooting
 
 Wenn `mvn package` nicht funktioniert:
@@ -80,3 +71,16 @@ auszuführen.
 
 * `mvn clean package -Dmaven.test.skip=true` führt die Tests nicht aus
   und kompiliert die Tests auch nicht.
+
+#### Spring Boot
+
+<http://start.spring.io/> bietet eine einfache
+Möglichkeit, um neue Spring-Boot-Projekte mit passender `pom.xml`-Datei zu
+erzeugen. Dazu muss der Nutzer auf der Website nur einige Einstellungen
+übergeben. Die Website erstellt dann das passende Projekt mit einer `pom.xml`.
+
+Das Ergebnis des Maven-Builds bei einem Spring-Boot-Projekt ist ein
+JAR (Java Archive). In diesem sind alle Bestandteile der Anwendung
+einschließlich aller Bibliotheken enthalten. Java unterstützt dieses
+Dateiformat direkt. Also kann ein Microservice mit `java -jar
+target/microservice-order-0.0.1-SNAPSHOT.jar` gestartet werden.
