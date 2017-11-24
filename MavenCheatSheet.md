@@ -19,6 +19,19 @@ Sollen Maven Module Definitionen, wie z.B. die Java-Version, von anderen Modulen
 einem anderen Modul erben. Bei einem Multi-Modul-Projekt erben häufig alle
 Sub-Module von der `pom.xml` welche die Sub-Module referenziert.
 
+#### Maven Wrapper
+
+Normalerweise muss man Maven auf jedem Entwicklungsrechner
+installieren. Der
+[Maven-Wrapper](https://github.com/takari/maven-wrapper) ermöglicht
+die Nutzung von Maven ohne Installation. Dazu wird in dem jeweiligen
+Projekt ein Skript namens `mvnw` (Linux, macOS) oder `mvnw.cmd`
+(Windows) bereit gestellt, dass Maven installiert und die Umgebung
+einrichtet.
+
+Der Maven-Wrapper ist einfacher zu nutzen und sollte daher einer
+lokalen Maven-Installation vorgezogen werden.
+
 #### Verzeichnisse
 
 Ein Maven-Modul hat eine feste Dateistruktur:
@@ -36,9 +49,15 @@ Verzeichnis-Struktur:
 
 #### Kommandos
 
+Bei einer Maven-Installation auf dem lokalen Rechner wird das Kommando
+`mvn` genutzt. Ohne lokale Maven-Installation muss `./mvnw` (Linux,
+macOS) bzw. `mvnw.cmd` (Windows) genutzt werden.
+
 Die wichtigsten Kommandos für Maven sind:
 
-* `mvn package` lädt alle Abhängigkeiten aus dem Internet herunter, kompiliert
+* `mvn package` (bzw. `./mvnw package` oder `mvnw.cmd package` bei
+  Nutzung des Maven Wrappers) lädt alle Abhängigkeiten aus dem
+  Internet herunter, kompiliert
   den Code, führt die Tests aus und verpackt den kompilierten Code
   eine JAR-Datei. Das Ergebnis steht
   im Unterverzeichnis `target` des jeweiligen Moduls bereit. `mvn package
